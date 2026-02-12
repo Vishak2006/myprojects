@@ -1,33 +1,33 @@
 :root {
-    /* Premium Palette */
-    --bg-dark: #0b1026;
-    /* Deep Navy */
-    --bg-light: #151a35;
-    --accent-gold: #D4AF37;
-    /* Champagne */
-    --accent-gold-dim: #8a7122;
-
-    --text-heading: #ffffff;
-    --text-body: #e0e0e0;
-    /* Soft White */
-    --text-muted: #8892b0;
-
-    /* Legacy Brand Colors (Muted for Luxury) */
+    /* Colors */
     --primary-mango: #FFB84D;
-    --primary-pomegranate: #C41E3A;
-    --primary-chocolate: #6D4C41;
+    --accent-mango: #FF6B35;
 
-    /* Fonts */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Outfit', sans-serif;
-    --font-btn: 'Outfit', sans-serif;
+    --primary-pomegranate: #C41E3A;
+    --accent-pomegranate: #8B0000;
+
+    --primary-chocolate: #4B3621;
+    --accent-chocolate: #D2691E;
+
+    --bg-dark: #0A0E27;
+    --bg-light: #1a1f40;
+    --text-light: #F5F5F5;
+    --text-dim: #A0A0A0;
+
+    --neon-cyan: #00FFFF;
+    --neon-magenta: #FF10F0;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
-    --spacing-lg: 5rem;
-    --spacing-xl: 10rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Fonts */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-btn: 'Montserrat', sans-serif;
 }
 
 * {
@@ -42,26 +42,11 @@ html {
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-body);
+    background: radial-gradient(circle at center, var(--bg-light), var(--bg-dark));
+    color: var(--text-light);
     font-family: var(--font-body);
     min-height: 100vh;
     overflow-x: hidden;
-    position: relative;
-}
-
-/* Grain Textue Overlay */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
 }
 
 /* Loading Screen */
@@ -99,33 +84,28 @@ body::before {
 /* Navigation */
 .glass-nav {
     position: fixed;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
-    min-width: 600px;
-    padding: 1rem 3rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    backdrop-filter: blur(20px);
-    background: rgba(11, 16, 38, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 50px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    background: rgba(10, 14, 39, 0.7);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 1.8rem;
-    /* Slightly larger */
-    letter-spacing: 1px;
-    color: var(--text-heading);
-    /* Remove gradient text for logo, make it solid luxury white or gold */
-    background: none;
-    -webkit-text-fill-color: initial;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    background: linear-gradient(to right, #fff, #aaa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .nav-links {
@@ -146,7 +126,7 @@ body::before {
 }
 
 .nav-links a:hover {
-    color: var(--accent-gold);
+    color: var(--neon-cyan);
 }
 
 .nav-actions {
@@ -172,10 +152,9 @@ body::before {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: var(--accent-gold);
-    color: var(--bg-dark);
+    background: var(--neon-magenta);
+    color: white;
     font-size: 0.7rem;
-    font-weight: 700;
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -226,7 +205,7 @@ body::before {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, #fff, var(--accent-gold));
+    background: linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -263,17 +242,14 @@ body::before {
 }
 
 .btn-primary {
-    background: transparent;
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    box-shadow: 0 0 10px rgba(212, 175, 55, 0.1);
+    background: linear-gradient(90deg, var(--neon-cyan), #00ccff);
+    color: var(--bg-dark);
+    border: none;
 }
 
 .btn-primary:hover {
-    background: var(--accent-gold);
-    color: var(--bg-dark);
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.3);
 }
 
 .btn-secondary {
@@ -350,29 +326,21 @@ body::before {
     width: 100%;
     max-width: 500px;
     height: 600px;
-    background: rgba(255, 255, 255, 0.02);
-    /* Very subtle fill */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    /* Thin elegant border */
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /* Slight top highlight */
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    /* Sharp, editorial corners */
-    backdrop-filter: blur(30px);
-    /* Heavy frost */
+    background: rgba(255, 255, 255, 0.03);
+    border: 15px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    /* Sharp corners for frame look, or slightly rounded */
+    backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    /* Slower, smoother easing */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Deep shadow */
 }
 
 .glass-panel:hover {
-    transform: scale(1.01);
-    /* Very subtle scale */
-    border-color: var(--accent-gold);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.05);
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .product-canvas,
@@ -414,58 +382,43 @@ body::before {
 
 .flavor-badge {
     display: inline-block;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    color: var(--accent-gold);
-    border: none;
-    background: none;
-    position: relative;
+    letter-spacing: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.flavor-badge::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 1px;
-    background: var(--accent-gold);
-    margin-top: 10px;
+.mango-theme .flavor-badge {
+    color: var(--primary-mango);
+    border-color: var(--primary-mango);
 }
 
-/* Remove theme specific colors for badges to keep it uniform luxury, or keep subtle */
-.mango-theme .flavor-badge,
-.pomegranate-theme .flavor-badge,
+.pomegranate-theme .flavor-badge {
+    color: var(--primary-pomegranate);
+    border-color: var(--primary-pomegranate);
+}
+
 .chocolate-theme .flavor-badge {
-    color: var(--accent-gold);
-    border: none;
+    color: var(--primary-chocolate);
+    border-color: var(--primary-chocolate);
 }
-
-
 
 .product-details h3 {
     font-family: var(--font-heading);
-    font-size: 4rem;
-    /* Larger */
-    font-weight: 400;
-    /* Regular weight for elegance */
-    margin-bottom: 2rem;
-    line-height: 1;
-    color: var(--text-heading);
-    letter-spacing: -1px;
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
 }
 
 .product-description {
-    font-family: var(--font-body);
-    font-size: 1.15rem;
-    font-weight: 300;
-    /* Light */
-    color: var(--text-body);
-    margin-bottom: 3rem;
-    line-height: 1.8;
-    max-width: 90%;
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
 }
 
 .benefits-list {
